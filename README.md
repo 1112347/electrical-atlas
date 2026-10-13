@@ -1,5 +1,9 @@
 # ⚡ 电气知识图鉴
 
+🌐 **网站入口：[打开电气知识图鉴](https://1112347.github.io/electrical-atlas/)**
+
+可以收藏此网址；后续更新仍使用同一地址。
+
 一个无需服务器、无需 API Key 的移动端电气工程知识卡网页。内置五张初始卡片及十张自动解锁的后续卡片、B站/知乎延伸资料、学习与复习记录、私人收藏、AI 提问跳转和 JSON 备份。
 
 ## 1. 首次发布 GitHub Pages
@@ -54,7 +58,7 @@ README.md           # 部署与使用说明
 
 ## 7. 当前部署状态
 
-本文件是部署说明，不代表已上线。只有 GitHub Pages 设置显示发布成功、实际网址可访问后才能确认上线。
+GitHub Pages 部署已成功。访问：[https://1112347.github.io/electrical-atlas/](https://1112347.github.io/electrical-atlas/)。发布状态可在仓库 [Actions](https://github.com/1112347/electrical-atlas/actions) 查看。
 
 ## 8. v1.3 自动补充课程
 
