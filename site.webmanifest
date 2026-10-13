@@ -1,0 +1,15 @@
+{
+  "name": "电气知识图鉴",
+  "short_name": "电气图鉴",
+  "description": "每天五分钟，积累电气工程知识",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fa",
+  "theme_color": "#172b50",
+  "lang": "zh-CN",
+  "icons": [
+    {"src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png"}
+  ]
+}

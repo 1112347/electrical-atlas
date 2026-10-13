@@ -1,0 +1,240 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101827"><meta name="description" content="电气工程师的五分钟知识卡：设备结构、特殊装置、工程原理、间隔复习与 AI 提问。"><meta name="referrer" content="strict-origin-when-cross-origin"><link rel="manifest" href="site.webmanifest"><link rel="icon" type="image/svg+xml" href="icons/icon.svg"><title>电气知识图鉴</title><style>:root{font-family:system-ui,-apple-system,'PingFang SC',sans-serif;color:#17202d;background:#f5f7fa}*{box-sizing:border-box}body{margin:0}.app{max-width:640px;margin:auto;padding:22px 16px 80px}header{display:flex;justify-content:space-between;align-items:center}h1{font-size:26px;margin:0 0 7px}p{line-height:1.7}.muted{color:#687385;font-size:13px}.pill{border:1px solid #d9e0ea;border-radius:30px;padding:7px 12px;background:white;font-size:13px}nav{display:flex;gap:8px;overflow:auto;padding:18px 0}button{cursor:pointer;font:inherit}nav button{white-space:nowrap}.active{background:#172b50!important;color:white!important;border-color:#172b50!important}.stats{display:flex;justify-content:space-between;align-items:center;margin-top:22px}.progress{height:7px;background:#e3e9f2;border-radius:10px;overflow:hidden;margin:10px 0}.progress>div{background:#4676d7;height:100%;width:0}.list{display:grid;gap:10px}.card{border:1px solid #e0e6ef;border-radius:15px;background:white;padding:17px;text-align:left;display:flex;gap:14px;align-items:center;width:100%;box-shadow:0 2px 6px #17202d06}.emoji{font-size:26px;background:#f0f4fb;padding:12px;border-radius:12px}.grow{flex:1}.name{font-weight:650;font-size:16px}.arrow{font-size:21px;color:#8792a1}.detail{background:white;border:1px solid #e0e6ef;border-radius:18px;padding:21px;margin-top:18px}.detail h2{font-size:22px;margin:4px 0}.detail h3{font-size:16px;margin:20px 0 7px}.detail ul{padding-left:22px;line-height:1.8}.tag{font-size:12px;color:#4d6fa8}.primary{background:#172b50;color:white;border:0;border-radius:12px;padding:13px 17px;width:100%;margin-top:15px}.secondary{background:#eef2f8;border:0;border-radius:12px;padding:12px 15px}.quiz{background:#f4f7fc;border-radius:12px;padding:15px;margin-top:16px}.answer{display:none;margin-top:12px}.answer.show{display:block}.back{border:0;background:transparent;padding:8px 0;color:#4163a0}.foot{font-size:12px;color:#788496;margin-top:20px}
+.resources{margin-top:26px;border-top:1px solid #e5eaf2;padding-top:6px}
+.resources .desc{font-size:13px;color:#687385;margin-top:0}
+.resource{padding:13px 0;border-bottom:1px solid #ebeff5}
+.resource-main{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.resource-title{color:#1c4c8d;font-weight:600;text-decoration:none;font-size:14px;line-height:1.6}
+.resource-title:hover{text-decoration:underline}
+.resource-meta{font-size:12px;color:#677489;margin:4px 0}
+.resource-note{font-size:13px;color:#49586c;margin:5px 0 7px;line-height:1.6}
+.resource-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}
+.resource-actions button{padding:5px 9px;border:1px solid #dbe3ef;border-radius:9px;background:#f8fafc;color:#5d6c7e;font-size:12px}
+.resource-actions button.selected{border-color:#7596cf;background:#e7f0ff;color:#204b90}
+.resource-actions button.remove{color:#a04444}
+.resource-type{display:inline-block;border-radius:6px;background:#e9f1fb;padding:3px 6px;font-size:11px;color:#365d92;white-space:nowrap}
+.add-resource{margin-top:17px;background:#f5f7fb;border-radius:12px;padding:13px}
+.add-resource summary{cursor:pointer;font-size:14px;font-weight:600}
+.add-resource input{width:100%;border:1px solid #d8e1ed;border-radius:9px;padding:11px;margin-top:9px;font-size:14px;background:white}
+.add-resource button{margin-top:9px;background:#172b50;color:white;border:0;border-radius:9px;padding:10px 13px}
+.add-resource small{display:block;color:#677489;margin-top:8px;line-height:1.5}
+.link-search{display:flex;gap:9px;margin:14px 0 5px;flex-wrap:wrap}
+.link-search a{font-size:12px;color:#4163a0;text-decoration:none;background:#eef3fb;border-radius:9px;padding:9px 10px}
+.status-msg{font-size:12px;color:#a33b3b;min-height:18px;margin-top:4px}
+
+.view-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:19px}
+.view-tabs button{background:#fff;border:1px solid #dce4f0;border-radius:12px;padding:11px 4px;font-size:13px;color:#375174}
+.view-tabs button.active{background:#172b50;color:#fff}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.tools button,.tools label{border:1px solid #dce4f0;background:white;padding:9px 12px;border-radius:10px;font-size:12px;color:#375174;cursor:pointer}
+.tools input[type=file]{display:none}
+.card-form{border:1px solid #e0e6ef;background:white;border-radius:15px;padding:17px;margin-bottom:15px}
+.card-form h3{margin:0 0 9px;font-size:16px}
+.card-form input,.card-form textarea,.notes textarea{display:block;width:100%;border:1px solid #dce4f0;border-radius:9px;background:white;padding:10px;font:inherit;font-size:14px;margin:8px 0;line-height:1.6}
+.card-form textarea{min-height:100px;resize:vertical}
+.card-form button{border:0;background:#172b50;color:white;border-radius:10px;padding:10px 14px}
+.library-note{font-size:13px;color:#677489;background:#edf3fb;padding:12px 14px;border-radius:10px;margin:12px 0}
+.card-state{display:inline-block;background:#edf3fb;color:#365d92;padding:3px 7px;border-radius:7px;margin-top:5px;font-size:12px}
+.review-controls{margin-top:23px;padding:15px;background:#f3f7fe;border-radius:13px}
+.review-controls h3{margin-top:0!important}.review-buttons{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.review-buttons button{border:1px solid #cddaf0;background:white;border-radius:10px;padding:12px 6px;font-weight:600;color:#23446d}
+.review-buttons .yes{background:#172b50;color:white;border-color:#172b50}
+.notes{margin-top:18px}.notes button{background:#eef2f8;color:#243b59;border:0;border-radius:9px;padding:9px 13px}
+.empty{background:white;border:1px dashed #d2dce9;color:#687385;border-radius:14px;padding:22px;text-align:center;line-height:1.7}
+
+.ai-panel{margin:17px 0 8px;border:1px solid #cddaf0;border-radius:15px;background:linear-gradient(135deg,#f1f6ff,#fff);padding:16px}
+.ai-panel h3{margin:0 0 6px;font-size:16px}
+.ai-panel p{color:#64748b;font-size:13px;line-height:1.6;margin:7px 0 9px}
+.ai-panel textarea{width:100%;min-height:77px;resize:vertical;border:1px solid #d3dfef;background:#fff;border-radius:10px;padding:11px;font:inherit;font-size:14px;line-height:1.6}
+.ai-actions{display:grid;grid-template-columns:1.5fr 1fr;gap:8px;margin-top:9px}
+.ai-actions button{border:1px solid #d3dfef;border-radius:10px;padding:11px 8px;background:#fff;color:#253f65;font-weight:600}
+.ai-actions .ai-go{background:#172b50;border-color:#172b50;color:#fff}
+.ai-hints{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.ai-hints button{font-size:12px;color:#30527c;border:1px solid #d3dfef;border-radius:18px;padding:6px 9px;background:#fff}
+.ai-status{font-size:12px;color:#456287;min-height:16px;margin-top:8px}
+.update-guide{border:1px solid #e0e6ef;background:#fff;border-radius:13px;padding:11px 14px;margin-top:13px;font-size:13px;line-height:1.8;color:#55657a}
+.update-guide summary{font-weight:650;cursor:pointer;color:#304d76}
+.update-guide ol{padding-left:20px;margin:6px 0}
+.update-guide strong{color:#28394e}
+</style></head><body><main class="app"><header><div><h1>⚡ 电气知识图鉴</h1><div class="muted">点开一个知识点，5 分钟认识一个工程概念</div></div><span class="pill">网页公开版 · v1.2</span></header><section id="home"><div class="stats"><b>知识探索</b><span class="muted" id="counter"></span></div><div class="progress"><div id="bar"></div></div><div class="view-tabs" id="view-tabs"></div><div class="tools"><button type="button" id="add-card-toggle">＋ 保存新知识卡</button><button type="button" id="export-data">↓ 导出全部卡片与学习记录</button><label for="import-file">↑ 导入备份</label><input type="file" id="import-file" accept="application/json,.json"></div>
+<section class="ai-panel" aria-label="向 AI 提问"><h3>✨ 随手向 AI 提问</h3><p>遇到不懂的知识点直接问；不填写时，AI 会帮你推荐一个五分钟能学完的电气知识点。进入具体卡片提问会自动带上卡片背景。</p><textarea id="home-ai-question" placeholder="例如：一次消谐器与二次消谐装置的区别是什么？（可以留空）" maxlength="1600"></textarea><div class="ai-actions"><button type="button" class="ai-go" id="home-ai-go">向 ChatGPT 提问 ↗</button><button type="button" id="home-ai-copy">复制提问内容</button></div><div class="ai-status" id="home-ai-status" role="status"></div><p>自动生成提示词并跳转 ChatGPT，预填是否成功取决于 ChatGPT 页面；请检查提示词并自行发送。不需要 API Key。请勿在提问中粘贴未获许可的项目资料。</p></section>
+<details class="update-guide"><summary>网站如何更新？我的卡片会丢吗？</summary><ol><li>更新前点上方 <strong>「导出全部卡片与学习记录」</strong>，保存 JSON 备份。</li><li>如果是本地 HTML 文件：用新版 HTML 替换旧文件，再打开；若看不到历史记录，点「导入备份」恢复。</li><li>如果部署在 GitHub Pages：在仓库中更新 <code>index.html</code> 等网站文件，提交修改后等待自动发布，再刷新网页。</li><li>同一网址、同一浏览器通常能保留本地记录；<strong>第一次从本地 HTML 搬到 GitHub Pages 时，一定要从原网页导出 JSON，再到新网址导入</strong>。换设备、换浏览器或清除网站数据后，也需通过备份恢复。<strong>目前不支持自动跨设备同步。</strong></li></ol></details><section id="card-form" class="card-form" hidden><h3>保存一张新知识卡</h3><input id="new-title" placeholder="标题（必填，例如：接地变压器）" maxlength="80"><input id="new-category" placeholder="分类（例如：保护装置）" maxlength="40"><textarea id="new-content" placeholder="卡片正文（必填，可粘贴整理好的知识点）"></textarea><input id="new-question" placeholder="复习问题（选填）" maxlength="300"><textarea id="new-answer" placeholder="参考答案（选填）" rows="2"></textarea><button type="button" id="save-new-card">保存卡片到知识库</button><p class="muted" id="form-msg"></p></section><nav id="filters"></nav><div class="list" id="list"></div></section><section id="reader" hidden></section><div class="foot">内容为入门知识卡，不代替工程设计标准、厂家资料或选型校核。知识卡、收藏和复习进度保存在当前浏览器；请定期导出备份，避免清除浏览器数据造成丢失。</div></main><script>
+const data=[
+{title:'变压器内部结构',category:'设备结构',emoji:'🔩',time:5,summary:'从铁芯、绕组、绝缘与油箱认识油浸式变压器。',parts:[['是什么','油浸式电力变压器通常由铁芯、绕组、绝缘系统、油箱、冷却装置、套管及调压相关部件组成。'],['为什么这样设计','铁芯为磁通提供低磁阻路径；绕组通过电磁感应传递能量；绝缘油兼具绝缘与散热作用，散热器帮助将热量传至环境。'],['工程中看什么','关注容量与电压比、联结组别、短路阻抗、冷却方式、调压范围、绝缘水平和安装检修空间。'],['容易混淆','有载分接开关可在带负荷条件下切换分接位置；无励磁分接开关调整时须按规定停电操作。']],q:'油浸式变压器的绝缘油只有绝缘作用吗？',a:'不是。绝缘油通常还承担传热、冷却作用。'},
+{title:'一次消谐器',category:'保护装置',emoji:'🛡️',time:5,summary:'理解电磁式 PT 铁磁谐振与一次消谐器的作用。',parts:[['是什么','一次消谐器常为具有非线性伏安特性的电阻元件，用于特定电磁式电压互感器回路的铁磁谐振抑制。'],['装在哪里','典型应用是将消谐元件接入符合条件的电磁式 PT 一次侧中性点与地之间；具体接线必须结合 PT 接线方案。'],['为什么需要','系统对地电容与 PT 非线性励磁电感可能构成铁磁谐振条件，造成异常电压、电流。消谐元件可增加阻尼，抑制部分谐振现象。'],['选型关注','核对系统额定电压、接地方式、PT 接线和励磁特性、消谐器伏安特性、热稳定性以及制造商适用条件。'],['容易混淆','一次消谐器不等于二次消谐装置，也不是适用于所有过电压的通用保护器。']],q:'所有 PT 都可以直接加装同一型号的一次消谐器吗？',a:'不可以。需结合 PT 接线、系统电压、接地方式、元件特性及厂家技术条件核对。'},
+{title:'CT 准确级',category:'设备选型',emoji:'📐',time:4,summary:'计量用 CT 和保护用 CT 为什么关注点不同？',parts:[['是什么','电流互感器（CT）的准确级描述其在规定条件下的误差性能，不同用途对应不同要求。'],['计量用途','计量回路重视正常运行电流范围内的测量准确性。'],['保护用途','保护回路还需考虑故障大电流下的误差与饱和特性，常见保护准确级如 5P、10P，但具体要求应按保护方案确定。'],['选型关注','一次额定电流、二次额定电流、准确级、额定负荷、准确限值系数或其他适用的暂态性能参数。'],['容易混淆','不能只看“准确级数字小”就认定所有用途都更好。']],q:'用于计量的高准确度 CT 一定适合继电保护吗？',a:'不一定。保护用途还要求在故障电流范围内满足相应性能。'},
+{title:'变压器励磁涌流',category:'工程现象',emoji:'⚡',time:6,summary:'为什么空载合闸也可能出现很大的瞬态电流？',parts:[['是什么','变压器投入电源时，由于合闸相角、剩磁及磁路饱和等因素，可能出现显著的暂态励磁电流。'],['形成原因','铁芯磁通由电压积分决定；若合闸瞬间的暂态磁通与剩磁叠加导致磁通进入饱和区，励磁电流会迅速增大。'],['工程中看什么','差动保护应具备适当的励磁涌流识别或闭锁策略，并结合保护原理及整定要求校核。'],['容易混淆','励磁涌流不是短路故障电流，两者产生机制不同。']],q:'变压器空载合闸就一定没有大电流吗？',a:'不是。空载合闸也可能产生较大的暂态励磁涌流。'},
+{title:'GIS 气室',category:'设备结构',emoji:'🏭',time:4,summary:'为什么 GIS 需要划分气室？',parts:[['是什么','GIS 将导体、断路器、隔离开关等高压部件布置于接地金属外壳内，并利用绝缘气体实现绝缘。'],['为什么分隔','分隔气室有助于气体管理、故障隔离、检修安排及降低局部漏气对其他单元的影响。'],['工程中看什么','气室划分图、气体监测、检修隔离方式、设备接口和运行维护条件。'],['容易混淆','不同厂家、不同电压等级 GIS 的气室分隔方式并不完全相同。']],q:'所有 GIS 的气室划分都一样吗？',a:'不一样，需以具体设备的气室分隔图及厂家资料为准。'}
+];
+
+const curatedResources=[[{"title":"一个视频，带你搞懂变压器！","kind":"B站视频","url":"https://www.bilibili.com/video/BV1LC4y1N7x6","note":"用动画认识铁芯、绕组和升降压过程（约 6 分钟）；侧重原理入门。"},{"title":"变压器你知道多少？","kind":"知乎文章","url":"https://zhuanlan.zhihu.com/p/434826362","note":"补充变压器分类与结构的文字介绍，部分工程结论需交叉核对。"}],[{"title":"成套 PT 柜上一次消谐器的作用、选型和使用","kind":"B站视频","url":"https://www.bilibili.com/video/BV1Ye411B7PZ/","note":"围绕 PT 柜中的实际装置讲解，涉及选型时应核对厂家资料。"},{"title":"电力系统铁磁谐振：故障原因及处理","kind":"B站视频","url":"https://www.bilibili.com/video/BV1oY4y1677E/","note":"约 9 分钟的现场故障分析；帮助把器件作用与系统现象联系起来。"}],[{"title":"上海交大精品课：电磁式电流互感器","kind":"B站视频","url":"https://www.bilibili.com/video/BV1T34y1n7bW/","note":"系列课第 5.2.1 节（约 9 分钟）；先巩固 CT 原理，再延伸到准确级。"},{"title":"电流互感器的主要参数与准确度选择","kind":"B站专栏","url":"https://www.bilibili.com/opus/485275650269390732","note":"含 5P20 等表示法的通俗讨论；精确定义与选型需以适用标准为准。"}],[{"title":"2.8 变压器的励磁涌流","kind":"B站视频","url":"https://www.bilibili.com/video/BV12y421a7Ua/","note":"电机学知识点讲解（约 12 分钟）；适合进一步理解暂态磁通与涌流。"},{"title":"励磁涌流鉴别方法","kind":"B站视频","url":"https://www.bilibili.com/video/BV1Mc411J7uz/","note":"约 5 分钟；补充差动保护中的识别思路。"}],[{"title":"GIS 组合电器安装施工工艺","kind":"B站视频","url":"https://www.bilibili.com/video/BV1S84y1t7pG/","note":"约 6 分钟；从施工场景认识 GIS 设备结构和现场接口。"},{"title":"GIS 配电装置的组成","kind":"知乎文章","url":"https://zhuanlan.zhihu.com/p/744662452","note":"文字介绍 GIS 组成及气室划分，具体结构仍应核对厂家气室划分图。"}]];
+const resourceSearches=[{"bili":"https://search.bilibili.com/all?keyword=%E5%8F%98%E5%8E%8B%E5%99%A8%20%E9%93%81%E8%8A%AF%20%E7%BB%95%E7%BB%84%20%E5%88%86%E6%8E%A5%E5%BC%80%E5%85%B3%20%E7%BB%93%E6%9E%84","zhihu":"https://www.zhihu.com/search?type=content&q=%E5%8F%98%E5%8E%8B%E5%99%A8%20%E9%93%81%E8%8A%AF%20%E7%BB%95%E7%BB%84%20%E5%88%86%E6%8E%A5%E5%BC%80%E5%85%B3%20%E7%BB%93%E6%9E%84"},{"bili":"https://search.bilibili.com/all?keyword=%E4%B8%80%E6%AC%A1%E6%B6%88%E8%B0%90%E5%99%A8%20PT%20%E9%93%81%E7%A3%81%E8%B0%90%E6%8C%AF%20%E9%80%89%E5%9E%8B","zhihu":"https://www.zhihu.com/search?type=content&q=%E4%B8%80%E6%AC%A1%E6%B6%88%E8%B0%90%E5%99%A8%20PT%20%E9%93%81%E7%A3%81%E8%B0%90%E6%8C%AF%20%E9%80%89%E5%9E%8B"},{"bili":"https://search.bilibili.com/all?keyword=CT%205P20%2010P10%20%E5%87%86%E7%A1%AE%E7%BA%A7","zhihu":"https://www.zhihu.com/search?type=content&q=CT%205P20%2010P10%20%E5%87%86%E7%A1%AE%E7%BA%A7"},{"bili":"https://search.bilibili.com/all?keyword=%E5%8F%98%E5%8E%8B%E5%99%A8%20%E5%8A%B1%E7%A3%81%E6%B6%8C%E6%B5%81%20%E4%BF%9D%E6%8A%A4","zhihu":"https://www.zhihu.com/search?type=content&q=%E5%8F%98%E5%8E%8B%E5%99%A8%20%E5%8A%B1%E7%A3%81%E6%B6%8C%E6%B5%81%20%E4%BF%9D%E6%8A%A4"},{"bili":"https://search.bilibili.com/all?keyword=GIS%20%E6%B0%94%E5%AE%A4%20%E5%88%92%E5%88%86%20%E7%BB%93%E6%9E%84","zhihu":"https://www.zhihu.com/search?type=content&q=GIS%20%E6%B0%94%E5%AE%A4%20%E5%88%92%E5%88%86%20%E7%BB%93%E6%9E%84"}];
+const resourceVotes=readStore('electrical-resource-votes',{});
+const customResources=readStore('electrical-custom-resources',{});
+function readStore(key,fallback){try{return JSON.parse(localStorage.getItem(key))||fallback}catch(e){return fallback}}
+function saveStore(key,value){try{localStorage.setItem(key,JSON.stringify(value))}catch(e){}}
+function htmlEscape(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function voteKey(i,j,personal){return (personal?'personal':'curated')+'-'+i+'-'+j}
+function resourceRow(r,i,j,personal){const key=voteKey(i,j,personal);const st=resourceVotes[key]||{};return `<div class="resource"><div class="resource-main"><a class="resource-title" href="${htmlEscape(r.url)}" target="_blank" rel="noopener noreferrer">${htmlEscape(r.title)} ↗</a><span class="resource-type">${htmlEscape(r.kind)}</span></div><div class="resource-note">${htmlEscape(r.note||'你自行收藏的学习资料')}</div><div class="resource-actions"><button data-vote="helpful" data-key="${key}" class="${st.helpful?'selected':''}">${st.helpful?'✓ ':''}有帮助</button><button data-vote="verify" data-key="${key}" class="${st.verify?'selected':''}">${st.verify?'✓ ':''}待核实</button><button data-vote="favorite" data-key="${key}" class="${st.favorite?'selected':''}">${st.favorite?'★ ':'☆ '}收藏</button>${personal?`<button class="remove" data-remove="${j}" data-i="${i}">移除</button>`:''}</div></div>`}
+function renderResources(i){let curated=curatedResources[i]||[];let personal=customResources[i]||[];let terms=resourceSearches[i]||{bili:'https://search.bilibili.com/all?keyword='+encodeURIComponent(data[i].title),zhihu:'https://www.zhihu.com/search?type=content&q='+encodeURIComponent(data[i].title)};return `<section class="resources"><h3>📚 延伸阅读 · 看懂以后再深入</h3><p class="desc">精选入口并非权威认证。点击跳转到原平台，选型及工程参数请以标准和厂家技术文件为准。</p>${curated.map((r,j)=>resourceRow(r,i,j,false)).join('')}${personal.map((r,j)=>resourceRow(r,i,j,true)).join('')}<div class="link-search"><a href="${htmlEscape(terms.bili)}" target="_blank" rel="noopener noreferrer">🔎 B站搜索更多</a><a href="${htmlEscape(terms.zhihu)}" target="_blank" rel="noopener noreferrer">🔎 知乎搜索更多</a></div><details class="add-resource"><summary>＋ 加入我发现的优质资料</summary><input id="resource-title" maxlength="100" placeholder="资料标题（如：变压器绕组接线动画）" aria-label="资料标题"><input id="resource-url" type="url" placeholder="粘贴 B站 / 知乎 / 厂家资料链接" aria-label="资料链接"><button id="resource-add" type="button">保存到这张知识卡</button><small>个人链接只保存在当前浏览器。支持 https 网页链接；无法自动识别文章质量。</small><div class="status-msg" id="resource-status"></div></details></section>`}
+function wireResources(i){document.querySelectorAll('[data-vote]').forEach(el=>el.onclick=()=>{const k=el.dataset.key;const vote=el.dataset.vote;const st=resourceVotes[k]||{};st[vote]=!st[vote];if(vote==='helpful'&&st.helpful)st.verify=false;if(vote==='verify'&&st.verify)st.helpful=false;resourceVotes[k]=st;saveStore('electrical-resource-votes',resourceVotes);openCard(i)});document.querySelectorAll('[data-remove]').forEach(el=>el.onclick=()=>{const j=Number(el.dataset.remove);(customResources[i]||[]).splice(j,1);saveStore('electrical-custom-resources',customResources);openCard(i)});$('resource-add').onclick=()=>{const title=$('resource-title').value.trim();const url=$('resource-url').value.trim();if(!title){$('resource-status').textContent='请填写资料标题';return}let parsed;try{parsed=new URL(url)}catch(e){$('resource-status').textContent='链接格式不正确';return}if(parsed.protocol!=='https:'&&parsed.protocol!=='http:'){$('resource-status').textContent='仅支持网页链接（http 或 https）';return}const domain=parsed.hostname.toLowerCase();const kind=domain.endsWith('bilibili.com')||domain==='b23.tv'?'B站资料':domain.endsWith('zhihu.com')?'知乎文章':'其他资料';(customResources[i]||(customResources[i]=[])).push({title,url,kind,note:'我自己添加的资料 · 内容待核实'});saveStore('electrical-custom-resources',customResources);openCard(i)}}
+
+// 复习状态用卡片稳定 ID（而不是数组位置）保存，新增卡片不影响旧进度。
+const REVIEW_KEY='electrical-review-records-v1';
+const ADDED_KEY='electrical-added-cards-v1';
+const ARCHIVE_KEY='electrical-card-archive-v1';
+let addedCards=readStore(ADDED_KEY,[]);
+if(!Array.isArray(addedCards)) addedCards=[];
+// 保存学习时的卡片正文快照。即使未来原型增删卡片，旧卡仍能从档案中找回。
+let archive=readStore(ARCHIVE_KEY,[]);
+if(!Array.isArray(archive)) archive=[];
+const cardId=c=>String(c.id||c.title);
+const seen=new Set(data.map(cardId));
+for(const c of addedCards){if(c&&c.title&&!seen.has(cardId(c))){data.push(c);seen.add(cardId(c));}}
+for(const c of archive){if(c&&c.title&&!seen.has(cardId(c))){data.push(c);seen.add(cardId(c));}}
+let reviews=readStore(REVIEW_KEY,{});
+if(!reviews||typeof reviews!=='object'||Array.isArray(reviews)) reviews={};
+const legacyDone=readStore('electrical-done',[]);
+if(Array.isArray(legacyDone)){
+  for(const n of legacyDone){if(Number.isInteger(n)&&n>=0&&n<data.length){const k=cardId(data[n]);if(!reviews[k])reviews[k]={learnedAt:new Date().toISOString(),lastReviewedAt:null,stage:0,nextReviewAt:dateOffset(1),reviewCount:0,starred:false,note:''};}}
+}
+saveStore(REVIEW_KEY,reviews);
+let category='全部',view='all';
+const $=id=>document.getElementById(id);
+const reviewDays=[1,3,7,14,30,60,120];
+function dateOffset(days){const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()+days);return d.toISOString();}
+function persist(){saveStore(REVIEW_KEY,reviews);saveStore(ARCHIVE_KEY,archive);}
+function rec(i){return reviews[cardId(data[i])]||{};}
+function isDue(r){return !!r.learnedAt&&!!r.nextReviewAt&&new Date(r.nextReviewAt).getTime()<=Date.now();}
+function shortDate(iso){if(!iso)return '未安排';const d=new Date(iso);return Number.isNaN(d.getTime())?'未知日期':d.toLocaleDateString('zh-CN',{year:'numeric',month:'short',day:'numeric'});}
+function preserve(i){const c=data[i],id=cardId(c);if(!archive.some(x=>cardId(x)===id))archive.push(JSON.parse(JSON.stringify(c)));}
+function initializeLearn(i){const id=cardId(data[i]),r=reviews[id]||{};if(!r.learnedAt){r.learnedAt=new Date().toISOString();r.lastReviewedAt=null;r.stage=0;r.nextReviewAt=dateOffset(1);r.reviewCount=0;preserve(i);}reviews[id]=r;persist();}
+function advanceReview(i,remembered){initializeLearn(i);const r=rec(i);r.lastReviewedAt=new Date().toISOString();r.reviewCount=(r.reviewCount||0)+1;r.stage=remembered?Math.min((r.stage||0)+1,reviewDays.length-1):0;r.nextReviewAt=dateOffset(reviewDays[r.stage]);persist();openCard(i);}
+function toggleStar(i){const id=cardId(data[i]);reviews[id] ||= {};reviews[id].starred=!reviews[id].starred;if(reviews[id].starred)preserve(i);persist();openCard(i);}
+function render(){
+  const due=data.filter((_,i)=>isDue(rec(i))).length;
+  const learned=data.filter((_,i)=>!!rec(i).learnedAt).length;
+  const saved=data.filter((x,i)=>rec(i).learnedAt||rec(i).starred||x.userCreated).length;
+  $('view-tabs').innerHTML=[['all','探索全部'],['library',`我的卡片 ${saved}`],['due',`待复习 ${due}`]].map(([id,label])=>`<button type="button" data-view="${id}" class="${view===id?'active':''}">${label}</button>`).join('');
+  document.querySelectorAll('[data-view]').forEach(el=>el.onclick=()=>{view=el.dataset.view;category='全部';render()});
+  const cats=['全部',...new Set(data.map(x=>x.category))];
+  $('filters').innerHTML=(view==='due'?'':cats.map(c=>`<button class="pill ${c===category?'active':''}" data-filter="${htmlEscape(c)}">${htmlEscape(c)}</button>`).join(''));
+  document.querySelectorAll('[data-filter]').forEach(el=>el.onclick=()=>{category=el.dataset.filter;render()});
+  const entries=data.map((x,i)=>({x,i})).filter(({x,i})=>{
+    if(view==='library'&&!(rec(i).learnedAt||rec(i).starred||x.userCreated))return false;
+    if(view==='due'&&!isDue(rec(i)))return false;
+    return category==='全部'||x.category===category;
+  });
+  $('list').innerHTML=entries.length?entries.map(({x,i})=>{
+    const r=rec(i),state=isDue(r)?'⏰ 待复习':r.learnedAt?'✓ 已学':r.starred?'☆ 已收藏':'';
+    return `<button class="card" data-open="${i}"><span class="emoji">${htmlEscape(x.emoji||'📖')}</span><span class="grow"><span class="name">${htmlEscape(x.title)}</span><br><span class="muted">${htmlEscape(x.category||'其他')} · ${x.time||5} 分钟</span>${state?`<br><span class="card-state">${state}</span>`:''}</span><span class="arrow">›</span></button>`;
+  }).join(''):`<div class="empty">${view==='due'?'当前没有到期卡片。已学卡片会在约定日期自动进入这里。':view==='library'?'复习库还是空的。打开卡片点击「学过了」，或先收藏感兴趣的卡片。':'还没有这个分类的卡片。'}</div>`;
+  document.querySelectorAll('[data-open]').forEach(el=>el.onclick=()=>openCard(+el.dataset.open));
+  $('counter').textContent=`已学 ${learned}/${data.length} · 待复习 ${due}`;
+  $('bar').style.width=`${data.length?100*learned/data.length:0}%`;
+}
+function openCard(i){
+  const x=data[i],r=rec(i),learned=!!r.learnedAt;
+  $('home').hidden=true;$('reader').hidden=false;
+  $('reader').innerHTML=`<button class="back" id="back">← 返回卡片列表</button><div class="detail"><div class="tag">${htmlEscape(x.category||'其他')} · 约 ${x.time||5} 分钟</div><h2>${htmlEscape(x.emoji||'📖')} ${htmlEscape(x.title)}</h2><p class="muted">${htmlEscape(x.summary||'')}</p>${(x.parts||[]).map(([h,t])=>`<h3>${htmlEscape(h)}</h3><p>${htmlEscape(t)}</p>`).join('')}<div class="quiz"><b>想一想</b><p>${htmlEscape(x.q||'读完后，你能用自己的话解释这个知识点吗？')}</p><button class="secondary" id="reveal">显示答案</button><div class="answer" id="answer">${htmlEscape(x.a||'试着总结：它是什么、为什么这样设计、在工程中何时用到。')}</div></div>
+  <section class="ai-panel" aria-label="就当前知识卡向 AI 提问"><h3>✨ 对这张卡继续提问</h3><p>自动附上当前卡片的标题、分类、完整正文和自测题。不会附上你的私人笔记或收藏链接。</p><div class="ai-hints"><button type="button" data-ai-hint="用一个直观的类比解释工作原理，并给一个简单工程例子。">讲原理</button><button type="button" data-ai-hint="在实际电气一次设计中，哪些图纸、参数和选型条件需要关注？">工程应用</button><button type="button" data-ai-hint="根据这个知识点出 3 道递进的小题，先不要公布答案。">出 3 道题</button></div><textarea id="card-ai-question" maxlength="1600" placeholder="例如：这里为什么需要阻尼？请用简单等效电路解释。"></textarea><div class="ai-actions"><button type="button" class="ai-go" id="card-ai-go">带着这张卡问 AI ↗</button><button type="button" id="card-ai-copy">复制提问内容</button></div><div class="ai-status" id="card-ai-status" role="status"></div></section>
+  <section class="review-controls"><h3>🗂️ 我的复习库</h3><p class="muted">${learned?`首次学习：${shortDate(r.learnedAt)} · 累计复习 ${r.reviewCount||0} 次<br>下次复习：${shortDate(r.nextReviewAt)}${isDue(r)?'（已到期）':''}`:'学完点击「学过了」，这张卡会保存在复习库里。'}</p>
+  ${learned?`<div class="review-buttons"><button id="review-again">还没记住 · 明天再看</button><button class="yes" id="review-good">记住了 · 延后复习</button></div>`:`<button class="primary" id="learn">✓ 学过了 · 加入复习库</button>`}
+  <button class="secondary" id="star" style="margin-top:10px;width:100%">${r.starred?'★ 已收藏（点击取消）':'☆ 收藏这张卡片'}</button></section>
+  <section class="notes"><h3>📝 我的理解与备注</h3><textarea id="personal-note" rows="3" placeholder="记下自己的理解、工程案例或下次想查的问题……">${htmlEscape(r.note||'')}</textarea><button id="save-note">保存笔记</button><span id="note-status" class="muted" style="margin-left:8px"></span></section>
+  ${renderResources(i)}</div>`;
+  $('back').onclick=back;
+  $('reveal').onclick=()=>$('answer').classList.toggle('show');
+  if($('learn'))$('learn').onclick=()=>{initializeLearn(i);openCard(i)};
+  if($('review-good'))$('review-good').onclick=()=>advanceReview(i,true);
+  if($('review-again'))$('review-again').onclick=()=>advanceReview(i,false);
+  $('star').onclick=()=>toggleStar(i);
+  $('save-note').onclick=()=>{const id=cardId(x);reviews[id] ||= {};reviews[id].note=$('personal-note').value;preserve(i);persist();$('note-status').textContent='已保存';};
+  wireResources(i);
+  bindAI('card',i);
+  document.querySelectorAll('[data-ai-hint]').forEach(el=>el.onclick=()=>{$('card-ai-question').value=el.dataset.aiHint;$('card-ai-question').focus();});
+  window.scrollTo(0,0);
+}
+function back(){$('reader').hidden=true;$('home').hidden=false;render();window.scrollTo(0,0)}
+$('add-card-toggle').onclick=()=>{const form=$('card-form');form.hidden=!form.hidden;if(!form.hidden)$('new-title').focus();};
+$('save-new-card').onclick=()=>{
+  const title=$('new-title').value.trim(),cardCategory=$('new-category').value.trim()||'我的知识卡',content=$('new-content').value.trim();
+  if(!title||!content){$('form-msg').textContent='标题和正文必须填写。';return;}
+  if(data.some(x=>x.title===title)){$('form-msg').textContent='同名卡片已存在，请换一个更具体的标题。';return;}
+  const c={id:'custom-'+Date.now()+'-'+Math.random().toString(36).slice(2,7),userCreated:true,title,category:cardCategory,emoji:'📖',time:5,summary:'我自己保存的知识卡',parts:content.split(/\n+/).filter(Boolean).map((line,j)=>{const split=line.match(/^(.{1,24})[：:]\s*(.+)$/);return split?[split[1],split[2]]:[`要点 ${j+1}`,line]}),q:$('new-question').value.trim()||'你能用自己的话解释这个知识点吗？',a:$('new-answer').value.trim()||'请结合上面的要点自行回顾。'};
+  addedCards.push(c);data.push(c);saveStore(ADDED_KEY,addedCards);preserve(data.length-1);persist();
+  $('card-form').hidden=true;for(const name of ['new-title','new-category','new-content','new-question','new-answer'])$(name).value='';view='library';category='全部';render();openCard(data.length-1);
+};
+$('export-data').onclick=()=>{
+  const payload={format:'electrical-cards-backup',version:1,exportedAt:new Date().toISOString(),cards:data,addedCards,archive,reviews,customResources,resourceVotes};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json;charset=utf-8'});
+  const link=document.createElement('a');link.href=URL.createObjectURL(blob);link.download='电气知识图鉴-备份-'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(link.href),1000);
+};
+$('import-file').onchange=async event=>{
+  const file=event.target.files?.[0];if(!file)return;
+  try{
+    const obj=JSON.parse(await file.text());
+    if(obj.format!=='electrical-cards-backup'||!Array.isArray(obj.cards)||typeof obj.reviews!=='object'||!obj.reviews||Array.isArray(obj.reviews))throw Error('文件不是有效的知识卡备份。');
+    if(!confirm('导入会替换当前的个人卡片、学习进度和收藏记录。建议先导出当前备份。确定继续吗？'))return;
+    const safeCards=obj.cards.filter(x=>x&&typeof x.title==='string'&&Array.isArray(x.parts)&&x.parts.every(y=>Array.isArray(y)&&y.length===2));
+    addedCards=Array.isArray(obj.addedCards)?obj.addedCards.filter(x=>x&&x.userCreated&&typeof x.title==='string'&&Array.isArray(x.parts)&&x.parts.every(y=>Array.isArray(y)&&y.length===2)):[];
+    archive=[...safeCards];
+    for(const c of (Array.isArray(obj.archive)?obj.archive:[])){if(c&&typeof c.title==='string'&&Array.isArray(c.parts)&&!archive.some(x=>cardId(x)===cardId(c)))archive.push(c);}
+    reviews=obj.reviews;
+    saveStore(ADDED_KEY,addedCards);saveStore(ARCHIVE_KEY,archive);saveStore(REVIEW_KEY,reviews);
+    saveStore('electrical-custom-resources',obj.customResources&&typeof obj.customResources==='object'&&!Array.isArray(obj.customResources)?obj.customResources:{});
+    saveStore('electrical-resource-votes',obj.resourceVotes&&typeof obj.resourceVotes==='object'&&!Array.isArray(obj.resourceVotes)?obj.resourceVotes:{});
+    alert('导入完成。页面将刷新以加载卡片和复习记录。');location.reload();
+  }catch(err){alert('导入失败：'+err.message);}finally{event.target.value='';}
+};
+// 在静态网页中以预填问题的方式跳转 ChatGPT；不收集密钥，不直接调用收费 API。
+function buildAIPrompt(scope,cardIndex){
+  const question=$(scope+'-ai-question').value.trim();
+  const instruction='请用中文以电力工程师的视角回答：先给简洁结论，再解释原理，必要时结合电站或变电站工程案例。讲选型时给出需核对的参数和限制条件，不直接虚构型号；涉及规范请标注应核查的标准类别，不编造条款。若术语/缩写含义依赖图纸语境，先指出歧义并询问条件。回答条理清楚，适合碎片时间阅读。';
+  if(scope==='home'){
+    const starter=question||'推荐一个适合5分钟学习的电气一次工程知识点，优先选择设备结构、辅助装置、常见接线或安装细节。请按「是什么→工作原理→工程用途→容易出错的地方→一道自测题」来介绍，最后给两个可关联探索的知识点。';
+    return `${starter}\n\n${instruction}`;
+  }
+  const c=data[cardIndex];
+  const background=`我正在阅读电气知识卡「${c.title}」（${c.category||'电气工程'}）。\n卡片摘要：${c.summary||''}。`;
+  const outline=(c.parts||[]).map(([name,body])=>`${name}：${String(body)}`).join('\n');
+  return `${background}\n卡片已有内容（仅供理解背景，发现错误请指出）：\n${outline}\n自测题：${c.q||'无'}\n参考答案：${c.a||'无'}\n\n我的问题：${question||'请进一步解释这个知识点，并提供一个典型工程应用场景、一个容易忽略的细节和一道小题。'}\n\n${instruction}`;
+}
+async function copyAIText(txt,scope){
+  try{
+    if(navigator.clipboard&&window.isSecureContext){await navigator.clipboard.writeText(txt);return true;}
+    const node=document.createElement('textarea');node.value=txt;node.style.position='fixed';node.style.opacity='0';document.body.appendChild(node);node.focus();node.select();const ok=document.execCommand('copy');node.remove();return ok;
+  }catch(e){return false;}
+}
+function showAIPrompt(scope,prompt){
+  const status=$(scope+'-ai-status');
+  let box=$(scope+'-ai-preview');
+  if(!box){box=document.createElement('textarea');box.id=scope+'-ai-preview';box.readOnly=true;box.rows=8;box.setAttribute('aria-label','完整 AI 提示词（可手动复制）');status.after(box);}
+  box.value=prompt;
+  return box;
+}
+function bindAI(scope,cardIndex){
+  const prefix=scope+'-ai';
+  const status=$(prefix+'-status');
+  $(prefix+'-copy').onclick=async()=>{
+    const prompt=buildAIPrompt(scope,cardIndex);
+    const preview=showAIPrompt(scope,prompt);
+    if(!prompt){status.textContent='先输入你想问的问题。';return;}
+    const ok=await copyAIText(prompt,scope);
+    status.textContent=ok?'已复制。你可以粘贴到任何 AI 对话中。':'浏览器不允许自动复制，请选中下方完整提示词复制。';
+  };
+  $(prefix+'-go').onclick=()=>{
+    const prompt=buildAIPrompt(scope,cardIndex);
+    const preview=showAIPrompt(scope,prompt);
+    if(!prompt){status.textContent='先输入你想问的问题。';return;}
+    // URL 预填参数属于网页端便捷入口，可能随 ChatGPT 页面升级发生变化。
+    const fullURL='https://chatgpt.com/?q='+encodeURIComponent(prompt);
+    const longPrompt=fullURL.length>12000;
+    const url=longPrompt?'https://chatgpt.com/':fullURL;
+    copyAIText(prompt,scope);
+    window.open(url,'_blank','noopener,noreferrer');
+    status.textContent=longPrompt?'卡片较长，已打开 ChatGPT。请复制下方完整提示词并粘贴。':'已尝试跳转 ChatGPT，请核对预填内容并自行发送。如未预填，可复制下方完整提示词。';
+  };
+}
+bindAI('home');
+render();
+</script></body></html>
